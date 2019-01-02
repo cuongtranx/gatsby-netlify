@@ -32,10 +32,10 @@ ID = "Gatsby Netlify"
   NODE_VERSION = "10.0.0"
   ACTIVE_ENV = "production"
 
-[context.feature/branch]
+[context.feature]
   command = "echo 'this is feature branch'"
 
-[context.release/branch]
+[context.release]
   command = "echo 'this is release branch'"
 
 # Redirects and headers are GLOBAL for all builds – they do not get scoped to
