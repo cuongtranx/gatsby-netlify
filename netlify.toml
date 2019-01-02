@@ -24,39 +24,19 @@ ID = "Gatsby Netlify"
 
 # Production context: all deploys from the Production branch set in your site's
 # deploy contexts will inherit these settings.
-[context.production]
+[context.master]
   publish = "public"
-  command = "echo 'this is production===========================' && gatsby build"
-  environment = { ACCESS_TOKEN = "super secret", NODE_VERSION = "10.0.0" }
+  command = "gatsby build"
 
-# Deploy Preview context: all deploys resulting from a pull/merge request will
-# inherit these settings.
-[context.deploy-preview]
-  publish = "dist"
-  command = "dist"
+[context.master.environment]
+  NODE_VERSION = "10.0.0"
+  ACTIVE_ENV = "production"
 
-# Here is another way to define context specific environment variables.
-[context.deploy-preview.environment]
-  ACCESS_TOKEN = "not so secret"
+[context.feature/branch]
+  command = "echo 'this is feature branch'"
 
-# Branch Deploy context: all deploys that are not from a pull/merge request or
-# from the Production branch will inherit these settings.
-[context.branch-deploy]
-  command = "echo 'branch'"
-[context.branch-deploy.environment]
-  NODE_ENV = "development"
-
-# Specific branch context: all deploys from this specific branch will inherit
-# these settings.
-[context.staging] # 'staging' is a branch name
-  command = "echo 'staging'"
-  base = "staging"
-
-# For contexts of branches with special characters, enclose the branch name
-# with quotes.
-[context."feat/branch"]
-  command = "echo 'special branch'"
-  base = "branch"
+[context.release/branch]
+  command = "echo 'this is release branch'"
 
 # Redirects and headers are GLOBAL for all builds – they do not get scoped to
 # contexts no matter where you define them in the file.
