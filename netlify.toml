@@ -40,11 +40,7 @@ ID = "Gatsby Netlify"
   publish = "public"
   command = "echo 'this is FEATURE branch' && gatsby build"
 
-[context."feature-haha"]
-  publish = "public"
-  command = "echo 'this is FEATURE HAHA branch' && gatsby build"
-
-[context."<^feature.*>"]
+[context."<feature.*>"]
   publish = "public"
   command = "echo 'this is FEATURE ALL branch' && gatsby build"
 
