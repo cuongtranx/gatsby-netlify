@@ -16,7 +16,7 @@ ID = "Gatsby Netlify"
   publish = "public"
 
   # Default build command.
-  command = "gatsby build"
+  command = "npm run build"
 
   # Directory with the lambda functions to deploy to AWS.
   # We dont' use functions
@@ -36,11 +36,12 @@ ID = "Gatsby Netlify"
 
 
 # All PR will be built with this context except for `staging` and `develop`
-[context.deploy-preview.environment]
+[context.deploy-preview]
   command = '''
       echo 'this is the DEPLOY PREVIEW build';
       npm run build
       '''
+
 [context.deploy-preview.environment]
   NODE_VERSION = "10.0.0"
   ACTIVE_ENV = "staging"
