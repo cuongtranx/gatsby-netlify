@@ -27,7 +27,7 @@ ID = "Gatsby Netlify"
 [context.master]
   publish = "public"
   command = '''
-      echo 'this is the PRODUCTION build';
+      echo 'this is the PRODUCTION build' &&
       npm run build
       '''
 [context.master.environment]
@@ -38,7 +38,7 @@ ID = "Gatsby Netlify"
 # All PR will be built with this context
 [context.deploy-preview]
   command = '''
-      echo 'this is the DEPLOY PREVIEW build';
+      echo 'this is the DEPLOY PREVIEW build' &&
       npm run build
       '''
   base = "master"
@@ -46,7 +46,7 @@ ID = "Gatsby Netlify"
 # All branches that is not PR will be built with this context
 [context.branch-deploy]
   command = '''
-      echo 'this is the BRANCH DEPLOY build';
+      echo 'this is the BRANCH DEPLOY build' &&
       npm run build
       '''
   base = "master"
@@ -58,7 +58,7 @@ ID = "Gatsby Netlify"
 [context.staging]
   publish = "public"
   command = '''
-      echo 'this is the STAGING build';
+      echo 'this is the STAGING build' &&
       npm run build
       '''
   base = "master"
@@ -67,7 +67,7 @@ ID = "Gatsby Netlify"
 [context.develop]
   publish = "public"
   command = '''
-      echo 'this is the DEVELOP build';
+      echo 'this is the DEVELOP build' &&
       npm run build
       '''
   base = "branch-deploy"
