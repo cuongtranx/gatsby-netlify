@@ -1,7 +1,7 @@
 [Settings]
 # Added automatically by the Netlify CLI. It has no effect during normal
 # Git-backed deploys.
-ID = "Gatsby Netlify"
+ID = "atsby Netlify"
 
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
@@ -16,7 +16,7 @@ ID = "Gatsby Netlify"
   publish = "public"
 
   # Default build command.
-  command = "npm run build"
+  #command = "npm run build"
 
   # Directory with the lambda functions to deploy to AWS.
   # We dont' use functions
@@ -26,29 +26,19 @@ ID = "Gatsby Netlify"
 # deploy contexts will inherit these settings.
 [context.master]
   publish = "public"
-  command = '''
-      echo 'this is the PRODUCTION build' &&
-      npm run build
-      '''
+  command = "echo 'this is the PRODUCTION build' && npm run build"
 [context.master.environment]
   NODE_VERSION = "10.0.0"
   ACTIVE_ENV = "production"
 
-
 # All PR will be built with this context
 [context.deploy-preview]
-  command = '''
-      echo 'this is the DEPLOY PREVIEW build' &&
-      npm run build
-      '''
+  command = "echo 'this is the DEPLOY PREVIEW build' && npm run build"
   base = "master"
 
 # All branches that is not PR will be built with this context
 [context.branch-deploy]
-  command = '''
-      echo 'this is the BRANCH DEPLOY build' &&
-      npm run build
-      '''
+  command = "echo 'this is the BRANCH DEPLOY build' && npm run build"
   base = "master"
 
 [context.branch-deploy.environment]
@@ -57,19 +47,13 @@ ID = "Gatsby Netlify"
 # Staging build
 [context.staging]
   publish = "public"
-  command = '''
-      echo 'this is the STAGING build' &&
-      npm run build
-      '''
+  command = "echo 'this is the STAGING build' && npm run build"
   base = "master"
 
 # Develop build
 [context.develop]
   publish = "public"
-  command = '''
-      echo 'this is the DEVELOP build' &&
-      npm run build
-      '''
+  command = "echo 'this is the DEVELOP build' && npm run build"
   base = "branch-deploy"
 
 # Redirects and headers are GLOBAL for all builds – they do not get scoped to
