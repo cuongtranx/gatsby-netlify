@@ -40,13 +40,9 @@ ID = "Gatsby Netlify"
   publish = "public"
   command = "echo 'this is FEATURE branch' && gatsby build"
 
-[context.'<feature.*>']
+[context.'feature.*']
   publish = "public"
   command = "echo 'this is FEATURE ALL SINGLE QUOTE branch' && gatsby build"
-
-[context."feature*"]
-  publish = "public"
-  command = "echo 'this is FEATURE* ALL branch' && gatsby build"
 
 # Redirects and headers are GLOBAL for all builds – they do not get scoped to
 # contexts no matter where you define them in the file.
