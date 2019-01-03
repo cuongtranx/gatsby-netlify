@@ -18,13 +18,13 @@ ID = "atsby Netlify"
   # Default build command.
   #command = "npm run build"
 
-  environment =  {
-    NODE_VERSION = "10.0.0",
-    ACTIVE_ENV = "production"
-  }
   # Directory with the lambda functions to deploy to AWS.
   # We dont' use functions
   #functions = "./functions/"
+
+[build.environment]
+  NODE_VERSION = "10.0.0"
+  ACTIVE_ENV = "production"
 
 # Production context: all deploys from the Production branch set in your site's
 # deploy contexts will inherit these settings.
