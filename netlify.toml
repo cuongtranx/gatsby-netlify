@@ -38,7 +38,7 @@ ID = "atsby Netlify"
 
 # All branches that is not PR will be built with this context
 [context.branch-deploy]
-  command = "echo 'this is the BRANCH DEPLOY build' && npm run build"
+  command = "echo 'this is the BRANCH DEPLOY build' && gatsby build"
   base = "master"
 
 [context.branch-deploy.environment]
