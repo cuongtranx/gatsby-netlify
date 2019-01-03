@@ -44,6 +44,17 @@ ID = "Gatsby Netlify"
 
 [context.deploy-preview.environment]
   NODE_VERSION = "10.0.0"
+  ACTIVE_ENV = "production"
+
+# All branches that is not PR will be built with this context except for `staging` and `develop`
+[context.branch-deploy]
+  command = '''
+      echo 'this is the BRANCH DEPLOY build';
+      npm run build
+      '''
+
+[context.branch-deploy]
+  NODE_VERSION = "10.0.0"
   ACTIVE_ENV = "staging"
 
 
