@@ -30,11 +30,23 @@ ID = "Gatsby Netlify"
       echo 'this is the PRODUCTION build';
       npm run build
       '''
-
 [context.master.environment]
   NODE_VERSION = "10.0.0"
   ACTIVE_ENV = "production"
 
+
+# All PR will be built with this context except for `staging` and `develop`
+[context.deploy-preview.environment]
+  command = '''
+      echo 'this is the DEPLOY PREVIEW build';
+      npm run build
+      '''
+[context.deploy-preview.environment]
+  NODE_VERSION = "10.0.0"
+  ACTIVE_ENV = "staging"
+
+
+# Staging build
 [context.staging]
   publish = "public"
   command = '''
@@ -44,8 +56,9 @@ ID = "Gatsby Netlify"
 
 [context.staging.environment]
   NODE_VERSION = "10.0.0"
-  ACTIVE_ENV = "staging"
+  ACTIVE_ENV = "production"
 
+# Develop build
 [context.develop]
   publish = "public"
   command = '''
@@ -55,7 +68,7 @@ ID = "Gatsby Netlify"
 
 [context.develop.environment]
   NODE_VERSION = "10.0.0"
-  ACTIVE_ENV = "develop"
+  ACTIVE_ENV = "staging"
 
 # Redirects and headers are GLOBAL for all builds – they do not get scoped to
 # contexts no matter where you define them in the file.
