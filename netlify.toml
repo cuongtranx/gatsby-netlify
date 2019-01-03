@@ -48,7 +48,7 @@ ID = "atsby Netlify"
 # Develop build
 [context.develop]
   command = "echo 'this is the DEVELOP build' && npm run build"
-[context.branch-deploy.environment]
+[context.develop.environment]
   ACTIVE_ENV = "staging"
 
 
