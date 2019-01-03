@@ -35,28 +35,24 @@ ID = "Gatsby Netlify"
   ACTIVE_ENV = "production"
 
 
-# All PR will be built with this context except for `staging` and `develop`
+# All PR will be built with this context
 [context.deploy-preview]
   command = '''
       echo 'this is the DEPLOY PREVIEW build';
       npm run build
       '''
+  base = "master"
 
-[context.deploy-preview.environment]
-  NODE_VERSION = "10.0.0"
-  ACTIVE_ENV = "production"
-
-# All branches that is not PR will be built with this context except for `staging` and `develop`
+# All branches that is not PR will be built with this context
 [context.branch-deploy]
   command = '''
       echo 'this is the BRANCH DEPLOY build';
       npm run build
       '''
+  base = "master"
 
-[context.branch-deploy]
-  NODE_VERSION = "10.0.0"
+[context.branch-deploy.environment]
   ACTIVE_ENV = "staging"
-
 
 # Staging build
 [context.staging]
@@ -65,10 +61,7 @@ ID = "Gatsby Netlify"
       echo 'this is the STAGING build';
       npm run build
       '''
-
-[context.staging.environment]
-  NODE_VERSION = "10.0.0"
-  ACTIVE_ENV = "production"
+  base = "master"
 
 # Develop build
 [context.develop]
@@ -77,10 +70,7 @@ ID = "Gatsby Netlify"
       echo 'this is the DEVELOP build';
       npm run build
       '''
-
-[context.develop.environment]
-  NODE_VERSION = "10.0.0"
-  ACTIVE_ENV = "staging"
+  base = "branch-deploy"
 
 # Redirects and headers are GLOBAL for all builds – they do not get scoped to
 # contexts no matter where you define them in the file.
