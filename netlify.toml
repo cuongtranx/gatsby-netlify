@@ -48,7 +48,6 @@ ID = "Gatsby Netlify"
 # All branches that is not PR will be built with this context
 [context.branch-deploy]
   command = "echo 'this is the BRANCH DEPLOY build' && ./netlify/branch-deploy.sh"
-  command = "echo 'try to put more command'"
 [context.branch-deploy.environment]
   ACTIVE_ENV = "staging"
 
