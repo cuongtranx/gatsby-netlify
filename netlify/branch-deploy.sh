@@ -3,7 +3,7 @@
 echo "====================================="
 echo "STEP 0: setting up"
 echo "====================================="
-BRANCH="cat ./netlify/.git.branch"
+BRANCH=$(cat ./netlify/.git.branch)
 echo $BRANCH
 
 
