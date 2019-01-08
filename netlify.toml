@@ -44,7 +44,7 @@ ID = "Gatsby Netlify"
 [context.branch-deploy.environment]
   ACTIVE_ENV = "staging"
 
-[context.test-2]
+[context."feature/test-2"]
   command = "echo 'this is the TEST-2 build' && ./netlify/branch-deploy.sh"
 
 # Redirects and headers are GLOBAL for all builds – they do not get scoped to
