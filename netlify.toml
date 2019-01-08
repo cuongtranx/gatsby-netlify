@@ -1,7 +1,7 @@
 [Settings]
 # Added automatically by the Netlify CLI. It has no effect during normal
 # Git-backed deploys.
-ID = "atsby Netlify"
+ID = "Gatsby Netlify"
 
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
@@ -29,25 +29,25 @@ ID = "atsby Netlify"
 # Production context: all deploys from the Production branch set in your site's
 # deploy contexts will inherit these settings.
 [context.master]
-  command = "echo 'this is the PRODUCTION build' && npm run build"
+  command = "echo 'this is the PRODUCTION build' && ./netlify/production.sh"
 
 # All PR will be built with this context
 [context.deploy-preview]
-  command = "echo 'this is the DEPLOY PREVIEW build' && npm run build"
+  command = "echo 'this is the DEPLOY PREVIEW build' && ./netlify/deploy-preview.sh"
 
 # All branches that is not PR will be built with this context
 [context.branch-deploy]
-  command = "echo 'this is the BRANCH DEPLOY build' && npm run build"
+  command = "echo 'this is the BRANCH DEPLOY build' && ./netlify/branch-deploy.sh"
 [context.branch-deploy.environment]
   ACTIVE_ENV = "staging"
 
 # Staging build
 [context.staging]
-  command = "echo 'this is the STAGING build' && npm run build"
+  command = "echo 'this is the STAGING build' ./netlify/staging.sh"
 
 # Develop build
 [context.develop]
-  command = "echo 'this is the DEVELOP build' && npm run build"
+  command = "echo 'this is the DEVELOP build' ./netlify/develop.sh"
 [context.develop.environment]
   ACTIVE_ENV = "staging"
 
