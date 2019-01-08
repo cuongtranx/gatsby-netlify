@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+BRANCH="cat .git.branch"
 
 echo "====================================="
 echo "STEP 0: setting up"
