@@ -1,12 +1,11 @@
 #!/bin/bash
 
-BRANCH="cat .git.branch"
-
 echo "====================================="
 echo "STEP 0: setting up"
 echo "====================================="
-git --version
-git branch
+BRANCH="cat ./netlify/.git.branch"
+echo $BRANCH
+
 
 echo "====================================="
 echo "STEP 1: running unit test"
