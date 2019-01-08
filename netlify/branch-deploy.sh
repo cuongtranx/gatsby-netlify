@@ -2,6 +2,7 @@
 
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 
+git --version
 echo "====================================="
 echo "STEP 1: running unit test"
 echo "====================================="
